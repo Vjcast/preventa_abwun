@@ -165,17 +165,36 @@
     </section>
 
     <div class="form-container" id="registro">
-        <h2 style="font-family:'Cinzel'; color:var(--oro);">S&Eacute; PARTE DEL DESCIFRAMIENTO</h2>
-        <p>Reg&iacute;strate para acceder a la preventa limitada y recibe un adelanto exclusivo.</p>
-        <form action="https://formspree.io" method="POST">
-            <input type="email" name="email" placeholder="Tu mejor email" required> <br>
-            <button type="submit" class="cta-button">QUIERO EL ACCESO EXCLUSIVO</button>
-        </form>
-    </div>
+    <h2 style="font-family:'Cinzel'; color:var(--oro);">S&Eacute; PARTE DEL DESCIFRAMIENTO</h2>
+    <p>Reg&iacute;strate para acceder a la preventa limitada y recibe un adelanto exclusivo.</p>
+    
+    <!-- ID exacto para que el script lo encuentre -->
+    <form id="abwun-form">
+        <input type="email" name="email" placeholder="Tu mejor email" required> <br>
+        <button type="submit" class="cta-button">QUIERO EL ACCESO EXCLUSIVO</button>
+        <!-- Contenedor para el mensaje de éxito -->
+        <div id="form-status" style="margin-top: 20px; font-weight: bold; color: var(--oro);"></div>
+    </form>
+</div>
 
     <footer style="padding: 40px; text-align: center; color: #444; font-size: 0.8rem; border-top: 1px solid #222;">
         &copy; 2026 V.J. Castillejo - Investigaci&oacute;n Hist&oacute;rica y Filol&oacute;gica.
     </footer>
+
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { 
+    formElement: '#abwun-form', 
+    formId: 'xdabwkqo',
+    onSuccess: function() {
+        // Mensaje que verá el usuario sin que la página cambie
+        document.getElementById('form-status').innerHTML = "¡Gracias! Tu registro ha sido procesado con éxito.";
+        document.getElementById('abwun-form').reset();
+        document.getElementById('abwun-form').querySelector('button').disabled = true;
+    }
+  });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 </html>
