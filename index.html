@@ -46,9 +46,11 @@
         }
         .close-modal { color: var(--oro); float: right; font-size: 35px; cursor: pointer; line-height: 1; transition: 0.3s; }
         .close-modal:hover { color: #fff; transform: scale(1.1); }
-        .modal-text { line-height: 1.8; font-size: 1.15rem; color: #d1c7b7; padding-right: 15px; }
+        .modal-text { line-height: 1.8; font-size: 1.1rem; color: #d1c7b7; padding-right: 15px; }
         .modal-text h2 { font-family: 'Cinzel', serif; color: var(--oro); text-align: center; font-size: 1.8rem; margin-top: 0; }
-        .modal-text p { margin-bottom: 20px; }
+        .modal-text h3 { font-family: 'Cinzel', serif; color: var(--oro); font-size: 1.3rem; margin-top: 25px; margin-bottom: 15px; }
+        .modal-text p { margin-bottom: 18px; }
+        .modal-text .italic { font-style: italic; color: var(--oro); text-align: center; display: block; margin-bottom: 25px; }
         .form-container { background: #000; padding: 100px 20px; text-align: center; border-top: 1px solid var(--oro); }
         input[type="email"] { 
             padding: 15px; width: 300px; background: #111; border: 2px solid var(--oro); 
@@ -82,7 +84,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.95);
             backdrop-filter: blur(10px);
             justify-content: center;
             align-items: center;
@@ -110,11 +112,6 @@
             color: var(--texto);
             margin-bottom: 25px;
         }
-        .check-icon {
-            font-size: 60px;
-            color: #00ff00;
-            margin-bottom: 20px;
-        }
         .spinner {
             width: 40px;
             height: 40px;
@@ -131,16 +128,17 @@
             .hero-img-box { width: 280px; } 
             .hero-text-box { text-align: center; } 
             h1 { font-size: 2.2rem; }
+            .modal-content { padding: 30px 20px; }
+            .modal-text { font-size: 1rem; }
         }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
-    <!-- Modal de confirmación personalizado -->
+    <!-- Modal de confirmación -->
     <div id="confirmModal" class="confirm-modal">
         <div class="confirm-content">
             <div class="spinner" id="confirmSpinner"></div>
-            <div id="confirmIcon" style="display: none;" class="check-icon">✅</div>
             <h3 id="confirmTitle">Enviando solicitud...</h3>
             <p id="confirmMessage">Por favor espera mientras procesamos tu registro.</p>
         </div>
@@ -166,11 +164,37 @@
             <span class="close-modal" onclick="cerrarModal()">&times;</span>
             <div class="modal-text">
                 <h2>PRÓLOGO</h2>
-                <p style="text-align:center; font-style: italic; color:var(--oro);">La Oración que Nadie Pronunció</p>
-                <p>Nunca he escuchado la voz de Jesús. Tampoco tú.</p>
-                <p>Hemos escuchado acerca de ella, hemos leído traducciones de traducciones que han viajado a través del tiempo como un eco desgastado. El Padrenuestro que recitamos hoy no proviene directamente de las palabras arameas de Yeshúa. Este libro es una inmersión arqueológica en el sonido original, en la vibración primigenia de una oración que pudo haber sido muy diferente a la que conocemos.</p>
-                <p>Te invito a olvidar todo lo que sabes. Abwūn no significa "Padre nuestro" de la forma en que lo entendemos. Es más profundo, más misterioso, más humano y divino a la vez. Este código lingüístico ha permanecido oculto durante siglos. Hasta ahora.</p>
-                <p style="text-align:right; font-family:'Cinzel'; color:var(--oro);">V.J. Castillejo</p>
+                <span class="italic">La Oración que Nadie Pronunció</span>
+                
+                <p>Nunca he escuchado la voz de Jesús.<br>Tampoco tú.</p>
+                
+                <p>Hemos escuchado acerca de ella, hemos leído traducciones de traducciones, hemos cantado versiones rimadas y recitado fórmulas consagradas por siglos de repetición. Pero el sonido concreto, la vibración aérea que salió de los labios de aquel rabino galileo hace dos mil años, se perdió en el viento del tiempo.</p>
+                
+                <p>Y, sin embargo, hay algo en nosotros —una nostalgia, una certeza sorda— que insiste en que esa voz importa. Que no es lo mismo escuchar una canción en su idioma original que en una versión adaptada. Que hay una diferencia entre besar a alguien y besar la fotografía de alguien.</p>
+                
+                <p>Este libro es el relato de una obsesión sana: la de recuperar, no la voz física (imposible), sino el código lingüístico y espiritual en el que esa voz pensaba, sentía y oraba. Es la crónica de un viaje que comenzó con una pregunta sencilla y humilde: ¿Cómo sonaba realmente el Padre Nuestro?</p>
+                
+                <p>Lo que empezó como una curiosidad histórica se convirtió en una aventura detectivesca: una inmersión en el arameo, en la filología, en los manuscritos antiguos. Y luego, algo sorprendente ocurrió. A medida que las palabras griegas se convertían en palabras arameas, y estas se descomponían en sus raíces semíticas, no estaba descubriendo solo sonidos antiguos. Estaba descubriendo sentidos perdidos, matices revolucionarios, grietas por donde se filtraba una luz espiritual que las traducciones habían suavizado.</p>
+                
+                <p>Descubrí que "Abba" no era solo "Padre", era "papá", el grito íntimo de un niño. Que "santificado sea tu nombre" era en realidad una petición reflexiva: "que tu esencia brille… y que brille a través de nosotros". Que "venga tu reino" pedía, no un territorio, sino una manera de gobernar basada en el servicio, no en el poder.</p>
+                
+                <p>Cada línea era una pequeña revolución, un cambio de paradigma espiritual comprimido en una frase.</p>
+                
+                <p>Este descubrimiento no fue mérito mío. Fui caminando sobre un puente construido por gigantes. Antes que yo, investigadores como Gustaf Dalman, Joachim Jeremias, Matthew Black y Maurice Casey dedicaron sus vidas académicas a reconstruir el arameo de Jesús con rigor filológico. Ellos fueron los verdaderos pioneros, los que se atrevieron a cuestionar la superficie griega para buscar la raíz semítica. Sin sus trabajos minuciosos —sus diccionarios, sus análisis gramaticales, sus estudios comparativos— este libro no existiría. Sus investigaciones convirtieron las dudas en hipótesis, y las hipótesis en caminos transitables. A ellos va mi más profundo reconocimiento académico.</p>
+                
+                <p>Entonces comprendí que este no podía ser solo un libro sobre una oración. Tenía que ser un libro para la oración. Un manual de operaciones para entrar, desde nuestro siglo XXI ansioso y fragmentado, en el espacio de confianza radical que Jesús abrió con siete peticiones.</p>
+                
+                <p>No soy teólogo ni académico. Soy solo una persona con más preguntas que respuestas y un poco de tiempo para perseguirlas. Este libro es la prueba de que no se necesita un título en divinidad para hacer teología; se necesita curiosidad, honestidad y el coraje de escuchar más allá de lo establecido.</p>
+                
+                <p>Te invito, pues, a un viaje de tres etapas.</p>
+                
+                <p>En la Primera Parte, seremos historiadores y lingüistas, asegurando el terreno.<br>
+                En la Segunda Parte, seremos contemplativos, girando el cristal de cada palabra aramea para ver todas sus luces.<br>
+                En la Tercera Parte, seremos practicantes, llevando esas palabras del corazón a la vida, de la celda a la calle.</p>
+                
+                <p>Al final, no tendrás solo información. Tendrás una llave. Una llave para una puerta que Jesús dejó abierta hace siglos, y que aún hoy conduce a un lugar de descanso, de sentido y de lucha hermosa.</p>
+                
+                <p style="text-align:right; font-family:'Cinzel'; color:var(--oro); margin-top: 40px;">V.J. Castillejo</p>
             </div>
         </div>
     </div>
@@ -212,18 +236,15 @@
         const form = document.getElementById('abwun-form');
         const confirmModal = document.getElementById('confirmModal');
         const confirmSpinner = document.getElementById('confirmSpinner');
-        const confirmIcon = document.getElementById('confirmIcon');
         const confirmTitle = document.getElementById('confirmTitle');
         const confirmMessage = document.getElementById('confirmMessage');
         
-        // Variable para controlar la ventana popup
         let popupWindow = null;
         let popupCheckInterval = null;
         
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Validar honeypot
             const honeypot = form.querySelector('input[name="_gotcha"]');
             if (honeypot && honeypot.value !== "") {
                 console.log("Bot detectado");
@@ -236,24 +257,16 @@
                 return;
             }
             
-            // Mostrar modal de carga
             confirmSpinner.style.display = "block";
-            confirmIcon.style.display = "none";
             confirmTitle.innerHTML = "🔄 Abriendo ventana de verificación...";
             confirmMessage.innerHTML = "Se abrirá una ventana pequeña para completar el reCAPTCHA.";
             confirmModal.style.display = "flex";
             
-            // Crear FormData
-            const formData = new FormData();
-            formData.append('email', email);
-            
-            // Opciones para la ventana popup
             const popupWidth = 500;
             const popupHeight = 700;
             const left = (screen.width - popupWidth) / 2;
             const top = (screen.height - popupHeight) / 2;
             
-            // Crear un formulario oculto para enviar a Formspree en la popup
             const hiddenForm = document.createElement('form');
             hiddenForm.method = 'POST';
             hiddenForm.action = 'https://formspree.io/f/xdabwkqo';
@@ -268,15 +281,11 @@
             
             document.body.appendChild(hiddenForm);
             
-            // Abrir ventana popup
             popupWindow = window.open('', 'formspreePopup', `width=${popupWidth},height=${popupHeight},left=${left},top=${top},resizable=yes,scrollbars=yes`);
             
             if (!popupWindow) {
-                // Si el popup está bloqueado
                 confirmSpinner.style.display = "none";
-                confirmIcon.style.display = "block";
-                confirmIcon.innerHTML = "⚠️";
-                confirmTitle.innerHTML = "Popup bloqueado";
+                confirmTitle.innerHTML = "⚠️ Popup bloqueado";
                 confirmMessage.innerHTML = "Por favor, permite las ventanas emergentes en tu navegador y vuelve a intentarlo.";
                 
                 setTimeout(() => {
@@ -285,7 +294,6 @@
                 return;
             }
             
-            // Mostrar mensaje de carga en la popup
             popupWindow.document.write(`
                 <!DOCTYPE html>
                 <html>
@@ -327,34 +335,27 @@
                 </html>
             `);
             
-            // Enviar el formulario desde la popup
             setTimeout(() => {
                 hiddenForm.submit();
                 
-                // Monitorear cuando la popup se cierre
                 popupCheckInterval = setInterval(() => {
                     if (popupWindow.closed) {
                         clearInterval(popupCheckInterval);
-                        // La ventana se cerró - asumimos que el reCAPTCHA fue completado
                         confirmSpinner.style.display = "none";
-                        confirmIcon.style.display = "block";
                         confirmTitle.innerHTML = "✅ ¡Registro exitoso!";
                         confirmMessage.innerHTML = "Gracias por tu interés. Revisa tu correo para confirmar tu suscripción.";
                         
-                        // Recargar la página después de 2 segundos
                         setTimeout(() => {
                             confirmModal.style.display = "none";
                             window.location.reload();
                         }, 2000);
                         
-                        // Limpiar el formulario oculto
                         document.body.removeChild(hiddenForm);
                     }
                 }, 500);
             }, 500);
         });
         
-        // Limpiar intervalo si la página se cierra
         window.addEventListener('beforeunload', function() {
             if (popupCheckInterval) {
                 clearInterval(popupCheckInterval);
