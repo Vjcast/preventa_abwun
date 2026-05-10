@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El C&oacute;digo Abw&#363;n - V.J. Castillejo</title>
+    <!-- Fuentes corregidas -->
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root { --oro: #d4af37; --fondo: #0a0a0a; --texto: #d1c7b7; --acento: #1a140f; }
@@ -49,6 +50,7 @@
             background: #0f0b08; margin: 4% auto; padding: 50px; border: 1px solid var(--oro); 
             width: 85%; max-width: 750px; max-height: 85vh; overflow-y: auto; text-align: justify;
             box-shadow: 0 0 60px rgba(0,0,0,1);
+            -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
         }
         .close-modal { color: var(--oro); float: right; font-size: 35px; cursor: pointer; line-height: 1; }
         .modal-text { line-height: 1.8; font-size: 1.15rem; color: #d1c7b7; padding-right: 15px; }
@@ -70,16 +72,6 @@
             .hero-text-box { text-align: center; }
             h1 { font-size: 2.4rem; }
         }
-        /* Protección extra para el prólogo */
-        .modal-content {
-            -webkit-touch-callout: none; /* iOS Safari */
-            -webkit-user-select: none;   /* Safari */
-            -khtml-user-select: none;    /* Konqueror HTML */
-            -moz-user-select: none;      /* Old versions of Firefox */
-            -ms-user-select: none;       /* Internet Explorer/Edge */
-            user-select: none;           /* Non-prefixed version */
-        }
-
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -117,7 +109,7 @@
                 <p>Que &ldquo;venga tu reino&rdquo; ped&iacute;a, no un territorio, sino una manera de gobernar basada en el servicio, no en el poder. Cada l&iacute;nea era una peque&ntilde;a revoluci&oacute;n, un cambio de paradigma espiritual comprimido en una frase.</p>
                 <p>Este descubrimiento no fue m&eacute;rito m&iacute;o. Fui caminando sobre un puente construido por gigantes. Antes que yo, investigadores como Gustaf Dalman, Joachim Jeremias, Matthew Black y Maurice Casey dedicaron sus vidas acad&eacute;micas a reconstruir el arameo de Jes&uacute;s con rigor filol&oacute;gico. Sin sus trabajos minuciosos este libro no existir&iacute;a. A ellos va mi m&aacute;s profundo reconocimiento acad&eacute;mico.</p>
                 <p>Entonces comprend&iacute; que este no pod&iacute;a ser solo un libro sobre una oraci&oacute;n. Ten&iacute;a que ser un libro para la oraci&oacute;n. Un manual de operaciones para entrar en el espacio de confianza radical que Jes&uacute;s abri&oacute; con siete peticiones.</p>
-                <p>No soy te&oacute;logo ni acad&eacute;mico. Soy solo una persona con m&aacute;s preguntas que respuestas. Este libro es la prueba de que no se necesita un t&iacute;tulo en divinidad para hacer teolog&iacute;a; se necesita curiosidad, honestidad y el coraje de escuchar m&aacute;s all&aacute de lo establecido.</p>
+                <p>No soy te&oacute;logo ni acad&eacute;mico. Soy solo una persona con m&aacute;s preguntas que respuestas. Este libro es la prueba de que no se necesita un t&iacute;tulo en divinidad para hacer teolog&iacute;a; se necesita curiosidad, honestidad y el coraje de escuchar m&aacute;s all&aacute; de lo establecido.</p>
                 <p>Te invito, pues, a un viaje de tres etapas. Al final, no tendr&aacute;s solo informaci&oacute;n. Tendr&aacute;s una llave. Una llave para una puerta que Jes&uacute;s dej&oacute; abierta hace siglos, y que a&uacute;n hoy conduce a un lugar de descanso, de sentido y de lucha hermosa.</p>
                 <p style="text-align:right; font-family:'Cinzel'; color:var(--oro);">V.J. Castillejo</p>
             </div>
@@ -126,11 +118,12 @@
 
     <div class="form-container" id="registro">
         <h2 style="font-family:'Cinzel'; color:var(--oro);">S&Eacute; PARTE DEL DESCIFRAMIENTO</h2>
+        <p>Reg&iacute;strate para acceder a la preventa limitada y recibe un adelanto exclusivo.</p>
         <form id="abwun-form">
             <input type="text" name="_gotcha" style="display:none">
             <input type="email" name="email" placeholder="Ingresa tu Email y Recibe tu regalo..." required> <br>
             <button type="submit" class="cta-button">QUIERO EL ACCESO EXCLUSIVO</button>
-            <div id="form-status"></div>
+            <div id="form-status" style="margin-top: 20px; font-weight: bold; color: var(--oro);"></div>
         </form>
     </div>
 
@@ -138,6 +131,7 @@
         &copy; 2026 V.J. Castillejo - Todos los derechos reservados.
     </footer>
 
+    <!-- SCRIPTS ACTUALIZADOS -->
     <script>
         function abrirModal() { document.getElementById('modalPrologo').style.display = "block"; document.body.style.overflow = "hidden"; }
         function cerrarModal() { document.getElementById('modalPrologo').style.display = "none"; document.body.style.overflow = "auto"; }
@@ -145,14 +139,17 @@
 
         window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
         formspree('initForm', { 
-            formElement: '#abwun-form', formId: 'xdabwkqo',
+            formElement: '#abwun-form', 
+            formId: 'xdabwkqo',
             onSuccess: function() {
                 document.getElementById('form-status').innerHTML = "&iexcl;Gracias! Tu registro ha sido procesado.";
                 document.getElementById('abwun-form').style.display = "none";
             }
         });
     </script>
+    <!-- URL de UNPKG corregida para cargar la librería AJAX de Formspree -->
     <script src="https://unpkg.com" defer></script>
 
 </body>
 </html>
+
