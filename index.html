@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El C&oacute;digo Abw&#363;n - V.J. Castillejo</title>
+    <title>El Código Abwūn - V.J. Castillejo</title>
     <!-- FUENTES CORREGIDAS -->
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { --oro: #d4af37; --fondo: #0a0a0a; --texto: #d1c7b7; --acento: #1a140f; }
         body { 
@@ -46,7 +46,7 @@
         .modal-text h2 { font-family: 'Cinzel', serif; color: var(--oro); text-align: center; font-size: 1.8rem; margin-top: 0; }
         .modal-text p { margin-bottom: 20px; }
         .form-container { background: #000; padding: 100px 20px; text-align: center; border-top: 1px solid var(--oro); }
-        input[type="email"] { padding: 15px; width: 300px; background: #111; border: 1px solid var(--oro); color: #fff; margin-bottom: 20px; }
+        input[type="email"] { padding: 15px; width: 300px; background: #111; border: 1px solid var(--oro); color: #fff; margin-bottom: 20px; font-size: 1rem; }
         #form-status { margin-top: 20px; font-weight: bold; color: var(--oro); }
         @media (max-width: 850px) { .hero-wrapper { flex-direction: column; text-align: center; } .hero-img-box { width: 280px; } .hero-text-box { text-align: center; } h1 { font-size: 2.4rem; } }
     </style>
@@ -56,13 +56,13 @@
     <header>
         <div class="hero-wrapper">
             <div class="hero-img-box" onclick="abrirModal()">
-                <img src="portada-real.jpg" alt="Leer pr&oacute;logo">
-                <p style="color:var(--oro); font-size: 0.8rem; margin-top: 15px; letter-spacing: 1px; opacity: 0.8;">[ CLIC PARA LEER EL PR&Oacute;LOGO ]</p>
+                <img src="portada-real.jpg" alt="Leer prólogo">
+                <p style="color:var(--oro); font-size: 0.8rem; margin-top: 15px; letter-spacing: 1px; opacity: 0.8;">[ CLIC PARA LEER EL PRÓLOGO ]</p>
             </div>
             <div class="hero-text-box">
-                <p style="color:var(--oro); letter-spacing: 5px; font-weight: bold; margin-bottom: 10px;">REVELACI&Oacute;N LING&Uuml;&Iacute;STICA</p>
-                <h1>EL C&Oacute;DIGO ABW&#363;N</h1>
-                <p style="font-size: 1.3rem; margin: 20px 0; border-left: 3px solid var(--oro); padding-left: 20px;">&iquest;Y si la oraci&oacute;n que conoces no fuera la que Jes&uacute;s pronunci&oacute;?</p>
+                <p style="color:var(--oro); letter-spacing: 5px; font-weight: bold; margin-bottom: 10px;">REVELACIÓN LINGÜÍSTICA</p>
+                <h1>EL CÓDIGO ABWŪN</h1>
+                <p style="font-size: 1.3rem; margin: 20px 0; border-left: 3px solid var(--oro); padding-left: 20px;">¿Y si la oración que conoces no fuera la que Jesús pronunció?</p>
                 <a href="#registro" class="cta-button">RESERVAR COPIA EXCLUSIVA</a>
             </div>
         </div>
@@ -72,18 +72,21 @@
         <div class="modal-content">
             <span class="close-modal" onclick="cerrarModal()">&times;</span>
             <div class="modal-text">
-                <h2>PR&Oacute;LOGO</h2>
-                <p style="text-align:center; font-style: italic; color:var(--oro);">La Oraci&oacute;n que Nadie Pronunci&oacute;</p>
-                <p>Nunca he escuchado la voz de Jes&uacute;s. Tampoco t&uacute;.</p>
-                <p>Hemos escuchado acerca de ella, hemos le&iacute;do traducciones de traducciones... (Texto omitido por brevedad, pero mantenlo completo)</p>
+                <h2>PRÓLOGO</h2>
+                <p style="text-align:center; font-style: italic; color:var(--oro);">La Oración que Nadie Pronunció</p>
+                <p>Nunca he escuchado la voz de Jesús. Tampoco tú.</p>
+                <p>Hemos escuchado acerca de ella, hemos leído traducciones de traducciones que han viajado a través del tiempo como un eco desgastado. El Padrenuestro que recitamos hoy no proviene directamente de las palabras arameas de Yeshúa. Este libro es una inmersión arqueológica en el sonido original, en la vibración primigenia de una oración que pudo haber sido muy diferente a la que conocemos.</p>
+                <p>Te invito a olvidar todo lo que sabes. Abwūn no significa "Padre nuestro" de la forma en que lo entendemos. Es más profundo, más misterioso, más humano y divino a la vez. Este código lingüístico ha permanecido oculto durante siglos. Hasta ahora.</p>
                 <p style="text-align:right; font-family:'Cinzel'; color:var(--oro);">V.J. Castillejo</p>
             </div>
         </div>
     </div>
 
     <div class="form-container" id="registro">
-        <h2 style="font-family:'Cinzel'; color:var(--oro);">S&Eacute; PARTE DEL DESCIFRAMIENTO</h2>
-        <form id="abwun-form">
+        <h2 style="font-family:'Cinzel'; color:var(--oro);">SÉ PARTE DEL DESCIFRAMIENTO</h2>
+        
+        <!-- FORMULARIO CORREGIDO - Usando action directa de Formspree -->
+        <form id="abwun-form" action="https://formspree.io/f/xdabwkqo" method="POST">
             <input type="text" name="_gotcha" style="display:none">
             <input type="email" name="email" placeholder="Ingresa tu Email..." required> <br>
             <button type="submit" class="cta-button">QUIERO EL ACCESO EXCLUSIVO</button>
@@ -97,20 +100,49 @@
 
     <!-- SCRIPTS CORREGIDOS -->
     <script>
-        function abrirModal() { document.getElementById('modalPrologo').style.display = "block"; document.body.style.overflow = "hidden"; }
-        function cerrarModal() { document.getElementById('modalPrologo').style.display = "none"; document.body.style.overflow = "auto"; }
-        function cerrarModalAfuera(event) { if (event.target == document.getElementById('modalPrologo')) cerrarModal(); }
+        // Funciones del modal
+        function abrirModal() { 
+            document.getElementById('modalPrologo').style.display = "block"; 
+            document.body.style.overflow = "hidden"; 
+        }
+        
+        function cerrarModal() { 
+            document.getElementById('modalPrologo').style.display = "none"; 
+            document.body.style.overflow = "auto"; 
+        }
+        
+        function cerrarModalAfuera(event) { 
+            if (event.target == document.getElementById('modalPrologo')) 
+                cerrarModal(); 
+        }
 
-        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-        formspree('initForm', { 
-            formElement: '#abwun-form', 
-            formId: 'xdabwkqo',
-            onSuccess: function() {
-                document.getElementById('form-status').innerHTML = "&iexcl;Gracias! Registro exitoso.";
-                document.getElementById('abwun-form').style.display = "none";
+        // Manejo del formulario con Formspree
+        const form = document.getElementById('abwun-form');
+        const statusDiv = document.getElementById('form-status');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            statusDiv.innerHTML = "Enviando...";
+            
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    statusDiv.innerHTML = "¡Gracias! Registro exitoso. Recibirás noticias pronto.";
+                    form.reset();
+                    setTimeout(() => { statusDiv.innerHTML = ""; }, 5000);
+                } else {
+                    statusDiv.innerHTML = "Error al enviar. Por favor, intenta de nuevo.";
+                }
+            } catch (error) {
+                statusDiv.innerHTML = "Error de conexión. Verifica tu internet.";
             }
         });
     </script>
-    <script src="https://unpkg.com" defer></script>
 </body>
 </html>
