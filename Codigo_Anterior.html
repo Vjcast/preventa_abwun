@@ -1,1 +1,476 @@
-# ------------
+# ------------ Codigo Anrerior Funcional
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Código Abwūn - V.J. Castillejo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --oro: #d4af37; --fondo: #0a0a0a; --texto: #d1c7b7; --acento: #1a140f; --whatsapp: #25D366; }
+        body { 
+            background-color: var(--fondo); color: var(--texto); font-family: 'Lato', sans-serif; 
+            margin: 0; scroll-behavior: smooth; overflow-x: hidden;
+            -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+        }
+        header {
+            min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 40px 20px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('portada.jpg') no-repeat center center/cover;
+            background-size: cover;
+        }
+        .hero-wrapper { display: flex; flex-direction: row; align-items: center; justify-content: center; max-width: 1100px; width: 100%; gap: 50px; }
+        .hero-img-box { flex: 0 0 350px; cursor: pointer; text-align: center; }
+        .hero-img-box img { width: 100%; height: auto; filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.4)); transition: 0.5s; }
+        .hero-img-box img:hover { transform: scale(1.05) rotate(-1deg); }
+        .hero-text-box { flex: 1; text-align: left; max-width: 550px; }
+        h1 { font-family: 'Cinzel', serif; font-size: 3.2rem; color: var(--oro); margin: 0; line-height: 1.1; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .cta-button {
+            position: relative; background: linear-gradient(to bottom, #d4af37 0%, #b8860b 100%);
+            color: black; padding: 18px 45px; text-decoration: none; font-weight: bold;
+            display: inline-block; margin-top: 35px; letter-spacing: 2px; overflow: hidden;
+            box-shadow: 0 0 20px rgba(212,175,55,0.2); transition: 0.3s; border: none; cursor: pointer;
+            border-radius: 5px; font-family: 'Lato', sans-serif; font-size: 1rem;
+        }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(212,175,55,0.4); }
+        .cta-button::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-25deg); animation: brillo 4s infinite;
+        }
+        @keyframes brillo { 0% { left: -100%; } 20% { left: 150%; } 100% { left: 150%; } }
+        
+        /* Botón de WhatsApp flotante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-weight: bold;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            background-color: #20b859;
+        }
+        
+        /* Tooltip para el botón flotante */
+        .whatsapp-float::before {
+            content: "Únete al grupo";
+            position: absolute;
+            right: 70px;
+            background: #000;
+            color: var(--oro);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-family: 'Lato', sans-serif;
+            border: 1px solid var(--oro);
+        }
+        .whatsapp-float:hover::before {
+            opacity: 1;
+        }
+        
+        /* Botón de WhatsApp integrado */
+        .whatsapp-button {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 14px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 50px;
+            margin-top: 20px;
+            transition: 0.3s;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.2);
+        }
+        .whatsapp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+        }
+        
+        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); backdrop-filter: blur(8px); }
+        .modal-content { 
+            background: #0f0b08; margin: 4% auto; padding: 50px; border: 1px solid var(--oro); 
+            width: 85%; max-width: 750px; max-height: 85vh; overflow-y: auto; text-align: justify;
+            box-shadow: 0 0 60px rgba(0,0,0,1);
+            border-radius: 10px;
+        }
+        .close-modal { color: var(--oro); float: right; font-size: 35px; cursor: pointer; line-height: 1; transition: 0.3s; }
+        .close-modal:hover { color: #fff; transform: scale(1.1); }
+        .modal-text { line-height: 1.8; font-size: 1.1rem; color: #d1c7b7; padding-right: 15px; }
+        .modal-text h2 { font-family: 'Cinzel', serif; color: var(--oro); text-align: center; font-size: 1.8rem; margin-top: 0; }
+        .modal-text .italic { font-style: italic; color: var(--oro); text-align: center; display: block; margin-bottom: 25px; }
+        .form-container { background: #000; padding: 100px 20px; text-align: center; border-top: 1px solid var(--oro); }
+        input[type="email"] { 
+            padding: 15px; width: 300px; background: #111; border: 2px solid var(--oro); 
+            color: #fff; margin-bottom: 20px; font-size: 1rem; 
+            border-radius: 5px; transition: 0.3s; font-family: 'Lato', sans-serif;
+        }
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+        .honeypot {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+            height: 0;
+            width: 0;
+        }
+        .security-notice {
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 20px;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0 20px;
+            color: #444;
+        }
+        .divider-line {
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--oro), transparent);
+        }
+        
+        .confirm-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+            justify-content: center;
+            align-items: center;
+        }
+        .confirm-content {
+            background: linear-gradient(135deg, #0f0b08 0%, #1a140f 100%);
+            border: 2px solid var(--oro);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 0 50px rgba(212,175,55,0.3);
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .confirm-content h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--oro);
+            margin-bottom: 20px;
+        }
+        .confirm-content p {
+            color: var(--texto);
+            margin-bottom: 25px;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--oro);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        @media (max-width: 850px) { 
+            .hero-wrapper { flex-direction: column; text-align: center; } 
+            .hero-img-box { width: 280px; } 
+            .hero-text-box { text-align: center; } 
+            h1 { font-size: 2.2rem; }
+            .modal-content { padding: 30px 20px; }
+            .modal-text { font-size: 1rem; }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 26px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://chat.whatsapp.com/ELBVzjCCXXoBepz4FHwLeC" 
+       class="whatsapp-float" 
+       target="_blank"
+       rel="noopener noreferrer">
+        💬
+    </a>
+
+    <div id="confirmModal" class="confirm-modal">
+        <div class="confirm-content">
+            <div class="spinner" id="confirmSpinner"></div>
+            <h3 id="confirmTitle">Enviando solicitud...</h3>
+            <p id="confirmMessage">Por favor espera mientras procesamos tu registro.</p>
+        </div>
+    </div>
+
+    <header>
+        <div class="hero-wrapper">
+            <div class="hero-img-box" onclick="abrirModal()">
+                <img src="portada-real.jpg" alt="Leer prólogo" onerror="this.src='https://via.placeholder.com/350x500?text=Portada+Abw%C5%ABn'">
+                <p style="color:var(--oro); font-size: 0.8rem; margin-top: 15px; letter-spacing: 1px; opacity: 0.8;">[ CLIC PARA LEER EL PRÓLOGO ]</p>
+            </div>
+            <div class="hero-text-box">
+                <p style="color:var(--oro); letter-spacing: 5px; font-weight: bold; margin-bottom: 10px;">REVELACIÓN LINGÜÍSTICA</p>
+                <h1>EL CÓDIGO ABWŪN</h1>
+                <p style="font-size: 1.3rem; margin: 20px 0; border-left: 3px solid var(--oro); padding-left: 20px;">¿Y si la oración que conoces no fuera la que Jesús pronunció?</p>
+                <a href="#registro" class="cta-button">RESERVAR COPIA EXCLUSIVA</a>
+            </div>
+        </div>
+    </header>
+
+    <div id="modalPrologo" class="modal" onclick="cerrarModalAfuera(event)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="cerrarModal()">&times;</span>
+            <div class="modal-text">
+                <h2>PRÓLOGO</h2>
+                <span class="italic">La Oración que Nadie Pronunció</span>
+                
+                <p>Nunca he escuchado la voz de Jesús.<br>Tampoco tú.</p>
+                
+                <p>Hemos escuchado acerca de ella, hemos leído traducciones de traducciones, hemos cantado versiones rimadas y recitado fórmulas consagradas por siglos de repetición. Pero el sonido concreto, la vibración aérea que salió de los labios de aquel rabino galileo hace dos mil años, se perdió en el viento del tiempo.</p>
+                
+                <p>Y, sin embargo, hay algo en nosotros —una nostalgia, una certeza sorda— que insiste en que esa voz importa. Que no es lo mismo escuchar una canción en su idioma original que en una versión adaptada. Que hay una diferencia entre besar a alguien y besar la fotografía de alguien.</p>
+                
+                <p>Este libro es el relato de una obsesión sana: la de recuperar, no la voz física (imposible), sino el código lingüístico y espiritual en el que esa voz pensaba, sentía y oraba. Es la crónica de un viaje que comenzó con una pregunta sencilla y humilde: ¿Cómo sonaba realmente el Padre Nuestro?</p>
+                
+                <p>Lo que empezó como una curiosidad histórica se convirtió en una aventura detectivesca: una inmersión en el arameo, en la filología, en los manuscritos antiguos. Y luego, algo sorprendente ocurrió. A medida que las palabras griegas se convertían en palabras arameas, y estas se descomponían en sus raíces semíticas, no estaba descubriendo solo sonidos antiguos. Estaba descubriendo sentidos perdidos, matices revolucionarios, grietas por donde se filtraba una luz espiritual que las traducciones habían suavizado.</p>
+                
+                <p>Descubrí que "Abba" no era solo "Padre", era "papá", el grito íntimo de un niño. Que "santificado sea tu nombre" era en realidad una petición reflexiva: "que tu esencia brille… y que brille a través de nosotros". Que "venga tu reino" pedía, no un territorio, sino una manera de gobernar basada en el servicio, no en el poder.</p>
+                
+                <p>Cada línea era una pequeña revolución, un cambio de paradigma espiritual comprimido en una frase.</p>
+                
+                <p>Este descubrimiento no fue mérito mío. Fui caminando sobre un puente construido por gigantes. Antes que yo, investigadores como Gustaf Dalman, Joachim Jeremias, Matthew Black y Maurice Casey dedicaron sus vidas académicas a reconstruir el arameo de Jesús con rigor filológico. Ellos fueron los verdaderos pioneros, los que se atrevieron a cuestionar la superficie griega para buscar la raíz semítica. Sin sus trabajos minuciosos —sus diccionarios, sus análisis gramaticales, sus estudios comparativos— este libro no existiría. Sus investigaciones convirtieron las dudas en hipótesis, y las hipótesis en caminos transitables. A ellos va mi más profundo reconocimiento académico.</p>
+                
+                <p>Entonces comprendí que este no podía ser solo un libro sobre una oración. Tenía que ser un libro para la oración. Un manual de operaciones para entrar, desde nuestro siglo XXI ansioso y fragmentado, en el espacio de confianza radical que Jesús abrió con siete peticiones.</p>
+                
+                <p>No soy teólogo ni académico. Soy solo una persona con más preguntas que respuestas y un poco de tiempo para perseguirlas. Este libro es la prueba de que no se necesita un título en divinidad para hacer teología; se necesita curiosidad, honestidad y el coraje de escuchar más allá de lo establecido.</p>
+                
+                <p>Te invito, pues, a un viaje de tres etapas.</p>
+                
+                <p>En la Primera Parte, seremos historiadores y lingüistas, asegurando el terreno.<br>
+                En la Segunda Parte, seremos contemplativos, girando el cristal de cada palabra aramea para ver todas sus luces.<br>
+                En la Tercera Parte, seremos practicantes, llevando esas palabras del corazón a la vida, de la celda a la calle.</p>
+                
+                <p>Al final, no tendrás solo información. Tendrás una llave. Una llave para una puerta que Jesús dejó abierta hace siglos, y que aún hoy conduce a un lugar de descanso, de sentido y de lucha hermosa.</p>
+                
+                <p style="text-align:right; font-family:'Cinzel'; color:var(--oro); margin-top: 40px;">V.J. Castillejo</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-container" id="registro">
+        <h2 style="font-family:'Cinzel'; color:var(--oro);">SÉ PARTE DEL DESCIFRAMIENTO</h2>
+        
+        <form id="abwun-form" method="POST">
+            <input type="text" name="_gotcha" class="honeypot" autocomplete="off">
+            <input type="email" name="email" placeholder="Ingresa tu Email..." required autocomplete="email"> 
+            <br>
+            <button type="submit" class="cta-button">QUIERO EL ACCESO EXCLUSIVO</button>
+            <p class="security-notice">
+                🔒 Tus datos están seguros. No compartiremos tu email con terceros.
+            </p>
+        </form>
+        
+        <div class="divider">
+            <span class="divider-line"></span>
+            <span>✦</span>
+            <span class="divider-line"></span>
+        </div>
+        
+        <!-- BOTÓN DE WHATSAPP INTEGRADO -->
+        <a href="https://chat.whatsapp.com/ELBVzjCCXXoBepz4FHwLeC" 
+           class="whatsapp-button" 
+           target="_blank"
+           rel="noopener noreferrer">
+            💬 Únete a nuestro grupo de WhatsApp
+        </a>
+    </div>
+
+    <footer style="padding: 40px; text-align: center; color: #555; font-size: 0.8rem; background: #000; border-top: 1px solid #1a1a1a;">
+        &copy; 2026 V.J. Castillejo - Todos los derechos reservados.
+    </footer>
+
+    <script>
+        function abrirModal() { 
+            document.getElementById('modalPrologo').style.display = "block"; 
+            document.body.style.overflow = "hidden"; 
+        }
+        
+        function cerrarModal() { 
+            document.getElementById('modalPrologo').style.display = "none"; 
+            document.body.style.overflow = "auto"; 
+        }
+        
+        function cerrarModalAfuera(event) { 
+            if (event.target == document.getElementById('modalPrologo')) 
+                cerrarModal(); 
+        }
+
+        const form = document.getElementById('abwun-form');
+        const confirmModal = document.getElementById('confirmModal');
+        const confirmSpinner = document.getElementById('confirmSpinner');
+        const confirmTitle = document.getElementById('confirmTitle');
+        const confirmMessage = document.getElementById('confirmMessage');
+        
+        let popupWindow = null;
+        let popupCheckInterval = null;
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const honeypot = form.querySelector('input[name="_gotcha"]');
+            if (honeypot && honeypot.value !== "") {
+                console.log("Bot detectado");
+                return;
+            }
+            
+            const email = form.querySelector('input[name="email"]').value;
+            if (!email || email.indexOf('@') === -1) {
+                alert('Por favor, ingresa un email válido.');
+                return;
+            }
+            
+            confirmSpinner.style.display = "block";
+            confirmTitle.innerHTML = "🔄 Abriendo ventana de verificación...";
+            confirmMessage.innerHTML = "Se abrirá una ventana pequeña para completar el reCAPTCHA.";
+            confirmModal.style.display = "flex";
+            
+            const popupWidth = 500;
+            const popupHeight = 700;
+            const left = (screen.width - popupWidth) / 2;
+            const top = (screen.height - popupHeight) / 2;
+            
+            const hiddenForm = document.createElement('form');
+            hiddenForm.method = 'POST';
+            hiddenForm.action = 'https://formspree.io/f/xdabwkqo';
+            hiddenForm.target = 'formspreePopup';
+            hiddenForm.style.display = 'none';
+            
+            const emailInput = document.createElement('input');
+            emailInput.type = 'email';
+            emailInput.name = 'email';
+            emailInput.value = email;
+            hiddenForm.appendChild(emailInput);
+            
+            document.body.appendChild(hiddenForm);
+            
+            popupWindow = window.open('', 'formspreePopup', `width=${popupWidth},height=${popupHeight},left=${left},top=${top},resizable=yes,scrollbars=yes`);
+            
+            if (!popupWindow) {
+                confirmSpinner.style.display = "none";
+                confirmTitle.innerHTML = "⚠️ Popup bloqueado";
+                confirmMessage.innerHTML = "Por favor, permite las ventanas emergentes en tu navegador y vuelve a intentarlo.";
+                
+                setTimeout(() => {
+                    confirmModal.style.display = "none";
+                }, 3000);
+                return;
+            }
+            
+            popupWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Verificación - El Código Abwūn</title>
+                    <style>
+                        body {
+                            background: #0a0a0a;
+                            color: #d1c7b7;
+                            font-family: 'Lato', sans-serif;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100vh;
+                            margin: 0;
+                            text-align: center;
+                        }
+                        .loader {
+                            border: 3px solid #d4af37;
+                            border-top-color: transparent;
+                            border-radius: 50%;
+                            width: 40px;
+                            height: 40px;
+                            animation: spin 1s linear infinite;
+                            margin: 0 auto 20px;
+                        }
+                        @keyframes spin { to { transform: rotate(360deg); } }
+                        h3 { color: #d4af37; font-family: 'Cinzel', serif; }
+                        p { color: #888; }
+                    </style>
+                </head>
+                <body>
+                    <div>
+                        <div class="loader"></div>
+                        <h3>Redirigiendo a verificación...</h3>
+                        <p>Por favor espera un momento</p>
+                    </div>
+                </body>
+                </html>
+            `);
+            
+            setTimeout(() => {
+                hiddenForm.submit();
+                
+                popupCheckInterval = setInterval(() => {
+                    if (popupWindow.closed) {
+                        clearInterval(popupCheckInterval);
+                        confirmSpinner.style.display = "none";
+                        confirmTitle.innerHTML = "✅ ¡Registro exitoso!";
+                        confirmMessage.innerHTML = "Gracias por tu interés. Revisa tu correo para confirmar tu suscripción.";
+                        
+                        setTimeout(() => {
+                            confirmModal.style.display = "none";
+                            window.location.reload();
+                        }, 2000);
+                        
+                        document.body.removeChild(hiddenForm);
+                    }
+                }, 500);
+            }, 500);
+        });
+        
+        window.addEventListener('beforeunload', function() {
+            if (popupCheckInterval) {
+                clearInterval(popupCheckInterval);
+            }
+        });
+    </script>
+</body>
+</html>
