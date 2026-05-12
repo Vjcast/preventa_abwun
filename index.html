@@ -13,7 +13,7 @@
     <meta name="language" content="es">
     <meta name="revisit-after" content="7 days">
     
-    <!-- ========== OPEN GRAPH (FACEBOOK, LINKEDIN, WHATSAPP) ========== -->
+    <!-- ========== OPEN GRAPH (FACEBOOK, LINKEDIN, WHATSAPP) - CORREGIDO ========== -->
     <meta property="og:title" content="El Código Abwūn - La Oración que Nadie Pronunció">
     <meta property="og:description" content="¿Y si la oración que conoces no fuera la que Jesús pronunció? Descubre el Padre Nuestro original en arameo.">
     <meta property="og:type" content="website">
@@ -24,7 +24,7 @@
     <meta property="og:locale" content="es_ES">
     <meta property="og:site_name" content="El Código Abwūn">
     
-    <!-- ========== TWITTER CARDS ========== -->
+    <!-- ========== TWITTER CARDS - CORREGIDO ========== -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="El Código Abwūn - La Oración que Nadie Pronunció">
     <meta name="twitter:description" content="Descubre el Padre Nuestro original en arameo. Una revelación lingüística que cambiará tu forma de orar.">
@@ -38,7 +38,7 @@
     <!-- ========== FUENTES ========== -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
-    <!-- ========== GOOGLE ANALYTICS - ID INTEGRADO ========== -->
+    <!-- ========== GOOGLE ANALYTICS ========== -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-504H9NL1CZ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -80,7 +80,6 @@
         }
         @keyframes brillo { 0% { left: -100%; } 20% { left: 150%; } 100% { left: 150%; } }
         
-        /* Botón de WhatsApp flotante */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -244,7 +243,6 @@
         }
         @keyframes spin { to { transform: rotate(360deg); } }
         
-        /* Schema.org para SEO */
         .schema-hidden {
             display: none;
         }
@@ -266,7 +264,6 @@
         }
     </style>
     
-    <!-- Datos estructurados Schema.org -->
     <script type="application/ld+json" class="schema-hidden">
     {
         "@context": "https://schema.org",
@@ -284,7 +281,6 @@
 </head>
 <body oncontextmenu="return false;">
 
-    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
     <a href="https://chat.whatsapp.com/ELBVzjCCXXoBepz4FHwLeC" 
        class="whatsapp-float" 
        target="_blank"
@@ -428,7 +424,6 @@
                 return;
             }
             
-            // Evento de inicio de registro en Analytics
             gtag('event', 'inicio_registro', {
                 'event_category': 'conversion',
                 'event_label': 'formulario_abwun'
@@ -522,7 +517,6 @@
                         confirmTitle.innerHTML = "✅ ¡Registro exitoso!";
                         confirmMessage.innerHTML = "Gracias por tu interés. Revisa tu correo para confirmar tu suscripción.";
                         
-                        // Evento de registro exitoso en Analytics
                         gtag('event', 'registro_exitoso', {
                             'event_category': 'conversion',
                             'event_label': 'formulario_abwun'
