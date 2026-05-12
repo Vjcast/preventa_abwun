@@ -2,9 +2,51 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Código Abwūn - V.J. Castillejo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    
+    <!-- ========== TÍTULO Y DESCRIPCIÓN SEO ========== -->
+    <title>El Código Abwūn | V.J. Castillejo - La Oración que Nadie Pronunció</title>
+    <meta name="description" content="Descubre el Padre Nuestro original en arameo. Una revelación lingüística que cambiará tu forma de orar. Accede al prólogo y reserva tu copia exclusiva.">
+    <meta name="keywords" content="Abwūn, Padre Nuestro arameo, oración original de Jesús, código Abwūn, V.J. Castillejo, Padrenuestro arameo, oración de Jesús, arameo bíblico">
+    <meta name="author" content="V.J. Castillejo">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="es">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- ========== OPEN GRAPH (FACEBOOK, LINKEDIN, WHATSAPP) ========== -->
+    <meta property="og:title" content="El Código Abwūn - La Oración que Nadie Pronunció">
+    <meta property="og:description" content="¿Y si la oración que conoces no fuera la que Jesús pronunció? Descubre el Padre Nuestro original en arameo.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vjcast.github.io/preventa_abwun/">
+    <meta property="og:image" content="https://vjcast.github.io/preventa_abwun/portada-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="El Código Abwūn">
+    
+    <!-- ========== TWITTER CARDS ========== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="El Código Abwūn - La Oración que Nadie Pronunció">
+    <meta name="twitter:description" content="Descubre el Padre Nuestro original en arameo. Una revelación lingüística que cambiará tu forma de orar.">
+    <meta name="twitter:image" content="https://vjcast.github.io/preventa_abwun/portada-twitter.jpg">
+    
+    <!-- ========== OTROS META TAGS ÚTILES ========== -->
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- ========== FUENTES ========== -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- ========== GOOGLE ANALYTICS - ID INTEGRADO ========== -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-504H9NL1CZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-504H9NL1CZ');
+    </script>
+    
     <style>
         :root { --oro: #d4af37; --fondo: #0a0a0a; --texto: #d1c7b7; --acento: #1a140f; --whatsapp: #25D366; }
         body { 
@@ -64,7 +106,6 @@
             background-color: #20b859;
         }
         
-        /* Tooltip para el botón flotante */
         .whatsapp-float::before {
             content: "Únete al grupo";
             position: absolute;
@@ -84,7 +125,6 @@
             opacity: 1;
         }
         
-        /* Botón de WhatsApp integrado */
         .whatsapp-button {
             background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             color: white;
@@ -204,6 +244,11 @@
         }
         @keyframes spin { to { transform: rotate(360deg); } }
         
+        /* Schema.org para SEO */
+        .schema-hidden {
+            display: none;
+        }
+        
         @media (max-width: 850px) { 
             .hero-wrapper { flex-direction: column; text-align: center; } 
             .hero-img-box { width: 280px; } 
@@ -220,6 +265,22 @@
             }
         }
     </style>
+    
+    <!-- Datos estructurados Schema.org -->
+    <script type="application/ld+json" class="schema-hidden">
+    {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "El Código Abwūn",
+        "author": {
+            "@type": "Person",
+            "name": "V.J. Castillejo"
+        },
+        "description": "Descubre el Padre Nuestro original en arameo. Una revelación lingüística que cambiará tu forma de orar.",
+        "inLanguage": "es",
+        "genre": "Religión, Espiritualidad, Lingüística"
+    }
+    </script>
 </head>
 <body oncontextmenu="return false;">
 
@@ -227,7 +288,8 @@
     <a href="https://chat.whatsapp.com/ELBVzjCCXXoBepz4FHwLeC" 
        class="whatsapp-float" 
        target="_blank"
-       rel="noopener noreferrer">
+       rel="noopener noreferrer"
+       onclick="gtag('event', 'click_whatsapp_float', {'event_category': 'social', 'event_label': 'whatsapp_flotante'});">
         💬
     </a>
 
@@ -241,15 +303,15 @@
 
     <header>
         <div class="hero-wrapper">
-            <div class="hero-img-box" onclick="abrirModal()">
-                <img src="portada-real.jpg" alt="Leer prólogo" onerror="this.src='https://via.placeholder.com/350x500?text=Portada+Abw%C5%ABn'">
+            <div class="hero-img-box" onclick="abrirModal(); gtag('event', 'clic_prologo', {'event_category': 'engagement', 'event_label': 'portada'});">
+                <img src="portada-real.jpg" alt="Portada del libro El Código Abwūn - La Oración que Nadie Pronunció" onerror="this.src='https://via.placeholder.com/350x500?text=El+C%C3%B3digo+Abw%C5%ABn'">
                 <p style="color:var(--oro); font-size: 0.8rem; margin-top: 15px; letter-spacing: 1px; opacity: 0.8;">[ CLIC PARA LEER EL PRÓLOGO ]</p>
             </div>
             <div class="hero-text-box">
                 <p style="color:var(--oro); letter-spacing: 5px; font-weight: bold; margin-bottom: 10px;">REVELACIÓN LINGÜÍSTICA</p>
                 <h1>EL CÓDIGO ABWŪN</h1>
                 <p style="font-size: 1.3rem; margin: 20px 0; border-left: 3px solid var(--oro); padding-left: 20px;">¿Y si la oración que conoces no fuera la que Jesús pronunció?</p>
-                <a href="#registro" class="cta-button">RESERVAR COPIA EXCLUSIVA</a>
+                <a href="#registro" class="cta-button" onclick="gtag('event', 'clic_cta_reservar', {'event_category': 'conversion', 'event_label': 'boton_reservar'});">RESERVAR COPIA EXCLUSIVA</a>
             </div>
         </div>
     </header>
@@ -313,11 +375,11 @@
             <span class="divider-line"></span>
         </div>
         
-        <!-- BOTÓN DE WHATSAPP INTEGRADO -->
         <a href="https://chat.whatsapp.com/ELBVzjCCXXoBepz4FHwLeC" 
            class="whatsapp-button" 
            target="_blank"
-           rel="noopener noreferrer">
+           rel="noopener noreferrer"
+           onclick="gtag('event', 'click_whatsapp_integrado', {'event_category': 'social', 'event_label': 'whatsapp_boton'});">
             💬 Únete a nuestro grupo de WhatsApp
         </a>
     </div>
@@ -365,6 +427,12 @@
                 alert('Por favor, ingresa un email válido.');
                 return;
             }
+            
+            // Evento de inicio de registro en Analytics
+            gtag('event', 'inicio_registro', {
+                'event_category': 'conversion',
+                'event_label': 'formulario_abwun'
+            });
             
             confirmSpinner.style.display = "block";
             confirmTitle.innerHTML = "🔄 Abriendo ventana de verificación...";
@@ -453,6 +521,12 @@
                         confirmSpinner.style.display = "none";
                         confirmTitle.innerHTML = "✅ ¡Registro exitoso!";
                         confirmMessage.innerHTML = "Gracias por tu interés. Revisa tu correo para confirmar tu suscripción.";
+                        
+                        // Evento de registro exitoso en Analytics
+                        gtag('event', 'registro_exitoso', {
+                            'event_category': 'conversion',
+                            'event_label': 'formulario_abwun'
+                        });
                         
                         setTimeout(() => {
                             confirmModal.style.display = "none";
